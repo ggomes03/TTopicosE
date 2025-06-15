@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sql" nsURI="http://www.example.org/sql" nsPrefix="sql">
+  <eClassifiers xsi:type="ecore:EClass" name="Banco">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nome" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tabela" upperBound="-1"
+        eType="#//Tabela" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tabela">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nome" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coluna" upperBound="-1"
+        eType="#//Coluna" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chaveprimaria" lowerBound="1"
+        upperBound="-1" eType="#//ChavePrimaria" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chaveestrangeira" upperBound="-1"
+        eType="#//ChaveEstrangeira" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Coluna">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nome" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo_dado" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nulo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChavePrimaria">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coluna" lowerBound="1"
+        upperBound="-1" eType="#//Coluna"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChaveEstrangeira">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coluna" upperBound="-1"
+        eType="#//Coluna"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tabela" lowerBound="1"
+        eType="#//Tabela" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Host">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="banco" upperBound="-1"
+        eType="#//Banco" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
