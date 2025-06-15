@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/uml/src-gen" creationIcons="false" editDirectory="/uml.edit/src-gen"
+    editorDirectory="/uml.editor/src-gen" modelPluginID="uml" modelName="Uml" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>uml.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Uml" disposableProviderFactory="true" ecorePackage="uml.ecore#/">
+    <genClasses ecoreClass="uml.ecore#//Classe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Classe/nome"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Classe/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//Atributo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Atributo/nome"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Atributo/tipo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Atributo/ehChavePrimaria"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//Associacao">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Associacao/nome"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Associacao/ehChaveEstrangeira"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Associacao/tabelaOrigem"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Associacao/tabelaAlvo"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//Elemento">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Elemento/classe"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
