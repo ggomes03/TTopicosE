@@ -257,6 +257,16 @@ public class SqlPackageImpl extends EPackageImpl implements SqlPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getColuna_Tabela() {
+		return (EReference) colunaEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getChavePrimaria() {
 		return chavePrimariaEClass;
 	}
@@ -365,6 +375,7 @@ public class SqlPackageImpl extends EPackageImpl implements SqlPackage {
 		createEAttribute(colunaEClass, COLUNA__NOME);
 		createEAttribute(colunaEClass, COLUNA__TIPO_DADO);
 		createEAttribute(colunaEClass, COLUNA__NULO);
+		createEReference(colunaEClass, COLUNA__TABELA);
 
 		chavePrimariaEClass = createEClass(CHAVE_PRIMARIA);
 		createEReference(chavePrimariaEClass, CHAVE_PRIMARIA__COLUNA);
@@ -418,9 +429,9 @@ public class SqlPackageImpl extends EPackageImpl implements SqlPackage {
 		initEClass(tabelaEClass, Tabela.class, "Tabela", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTabela_Nome(), ecorePackage.getEString(), "nome", null, 0, 1, Tabela.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTabela_Coluna(), this.getColuna(), null, "coluna", null, 0, -1, Tabela.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getTabela_Coluna(), this.getColuna(), this.getColuna_Tabela(), "coluna", null, 0, -1,
+				Tabela.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTabela_Chaveprimaria(), this.getChavePrimaria(), null, "chaveprimaria", null, 1, -1,
 				Tabela.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -435,6 +446,9 @@ public class SqlPackageImpl extends EPackageImpl implements SqlPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColuna_Nulo(), ecorePackage.getEBoolean(), "nulo", null, 0, 1, Coluna.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColuna_Tabela(), this.getTabela(), this.getTabela_Coluna(), "tabela", null, 0, 1,
+				Coluna.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chavePrimariaEClass, ChavePrimaria.class, "ChavePrimaria", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -447,8 +461,8 @@ public class SqlPackageImpl extends EPackageImpl implements SqlPackage {
 		initEReference(getChaveEstrangeira_Coluna(), this.getColuna(), null, "coluna", null, 0, -1,
 				ChaveEstrangeira.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getChaveEstrangeira_Tabela(), this.getTabela(), null, "tabela", null, 1, 1,
-				ChaveEstrangeira.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+		initEReference(getChaveEstrangeira_Tabela(), this.getTabela(), null, "tabela", null, 0, 1,
+				ChaveEstrangeira.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(hostEClass, Host.class, "Host", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

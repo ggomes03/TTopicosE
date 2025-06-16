@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link sql.Coluna#getNome <em>Nome</em>}</li>
  *   <li>{@link sql.Coluna#getTipo_dado <em>Tipo dado</em>}</li>
  *   <li>{@link sql.Coluna#isNulo <em>Nulo</em>}</li>
+ *   <li>{@link sql.Coluna#getTabela <em>Tabela</em>}</li>
  * </ul>
  *
  * @see sql.SqlPackage#getColuna()
@@ -88,5 +89,29 @@ public interface Coluna extends EObject {
 	 * @generated
 	 */
 	void setNulo(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Tabela</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link sql.Tabela#getColuna <em>Coluna</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tabela</em>' container reference.
+	 * @see #setTabela(Tabela)
+	 * @see sql.SqlPackage#getColuna_Tabela()
+	 * @see sql.Tabela#getColuna
+	 * @model opposite="coluna" transient="false"
+	 * @generated
+	 */
+	Tabela getTabela();
+
+	/**
+	 * Sets the value of the '{@link sql.Coluna#getTabela <em>Tabela</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Tabela</em>' container reference.
+	 * @see #getTabela()
+	 * @generated
+	 */
+	void setTabela(Tabela value);
 
 } // Coluna

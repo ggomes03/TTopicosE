@@ -51,11 +51,13 @@ public interface Tabela extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Coluna</b></em>' containment reference list.
 	 * The list contents are of type {@link sql.Coluna}.
+	 * It is bidirectional and its opposite is '{@link sql.Coluna#getTabela <em>Tabela</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Coluna</em>' containment reference list.
 	 * @see sql.SqlPackage#getTabela_Coluna()
-	 * @model containment="true"
+	 * @see sql.Coluna#getTabela
+	 * @model opposite="tabela" containment="true"
 	 * @generated
 	 */
 	EList<Coluna> getColuna();

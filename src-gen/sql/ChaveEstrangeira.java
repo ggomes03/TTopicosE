@@ -37,22 +37,22 @@ public interface ChaveEstrangeira extends EObject {
 	EList<Coluna> getColuna();
 
 	/**
-	 * Returns the value of the '<em><b>Tabela</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Tabela</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tabela</em>' containment reference.
+	 * @return the value of the '<em>Tabela</em>' reference.
 	 * @see #setTabela(Tabela)
 	 * @see sql.SqlPackage#getChaveEstrangeira_Tabela()
-	 * @model containment="true" required="true"
+	 * @model
 	 * @generated
 	 */
 	Tabela getTabela();
 
 	/**
-	 * Sets the value of the '{@link sql.ChaveEstrangeira#getTabela <em>Tabela</em>}' containment reference.
+	 * Sets the value of the '{@link sql.ChaveEstrangeira#getTabela <em>Tabela</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tabela</em>' containment reference.
+	 * @param value the new value of the '<em>Tabela</em>' reference.
 	 * @see #getTabela()
 	 * @generated
 	 */

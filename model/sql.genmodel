@@ -22,13 +22,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//Coluna/nome"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//Coluna/tipo_dado"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql.ecore#//Coluna/nulo"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sql.ecore#//Coluna/tabela"/>
     </genClasses>
     <genClasses ecoreClass="sql.ecore#//ChavePrimaria">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sql.ecore#//ChavePrimaria/coluna"/>
     </genClasses>
     <genClasses ecoreClass="sql.ecore#//ChaveEstrangeira">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sql.ecore#//ChaveEstrangeira/coluna"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//ChaveEstrangeira/tabela"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sql.ecore#//ChaveEstrangeira/tabela"/>
     </genClasses>
     <genClasses ecoreClass="sql.ecore#//Host">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql.ecore#//Host/banco"/>

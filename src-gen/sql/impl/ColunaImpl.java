@@ -4,13 +4,17 @@ package sql.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import sql.Coluna;
 import sql.SqlPackage;
+import sql.Tabela;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +27,7 @@ import sql.SqlPackage;
  *   <li>{@link sql.impl.ColunaImpl#getNome <em>Nome</em>}</li>
  *   <li>{@link sql.impl.ColunaImpl#getTipo_dado <em>Tipo dado</em>}</li>
  *   <li>{@link sql.impl.ColunaImpl#isNulo <em>Nulo</em>}</li>
+ *   <li>{@link sql.impl.ColunaImpl#getTabela <em>Tabela</em>}</li>
  * </ul>
  *
  * @generated
@@ -183,6 +188,95 @@ public class ColunaImpl extends MinimalEObjectImpl.Container implements Coluna {
 	 * @generated
 	 */
 	@Override
+	public Tabela getTabela() {
+		if (eContainerFeatureID() != SqlPackage.COLUNA__TABELA)
+			return null;
+		return (Tabela) eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTabela(Tabela newTabela, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newTabela, SqlPackage.COLUNA__TABELA, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTabela(Tabela newTabela) {
+		if (newTabela != eInternalContainer()
+				|| (eContainerFeatureID() != SqlPackage.COLUNA__TABELA && newTabela != null)) {
+			if (EcoreUtil.isAncestor(this, newTabela))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newTabela != null)
+				msgs = ((InternalEObject) newTabela).eInverseAdd(this, SqlPackage.TABELA__COLUNA, Tabela.class, msgs);
+			msgs = basicSetTabela(newTabela, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SqlPackage.COLUNA__TABELA, newTabela, newTabela));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SqlPackage.COLUNA__TABELA:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetTabela((Tabela) otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SqlPackage.COLUNA__TABELA:
+			return basicSetTabela(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+		case SqlPackage.COLUNA__TABELA:
+			return eInternalContainer().eInverseRemove(this, SqlPackage.TABELA__COLUNA, Tabela.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case SqlPackage.COLUNA__NOME:
@@ -191,6 +285,8 @@ public class ColunaImpl extends MinimalEObjectImpl.Container implements Coluna {
 			return getTipo_dado();
 		case SqlPackage.COLUNA__NULO:
 			return isNulo();
+		case SqlPackage.COLUNA__TABELA:
+			return getTabela();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,6 +307,9 @@ public class ColunaImpl extends MinimalEObjectImpl.Container implements Coluna {
 			return;
 		case SqlPackage.COLUNA__NULO:
 			setNulo((Boolean) newValue);
+			return;
+		case SqlPackage.COLUNA__TABELA:
+			setTabela((Tabela) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,6 +332,9 @@ public class ColunaImpl extends MinimalEObjectImpl.Container implements Coluna {
 		case SqlPackage.COLUNA__NULO:
 			setNulo(NULO_EDEFAULT);
 			return;
+		case SqlPackage.COLUNA__TABELA:
+			setTabela((Tabela) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,6 +353,8 @@ public class ColunaImpl extends MinimalEObjectImpl.Container implements Coluna {
 			return TIPO_DADO_EDEFAULT == null ? tipo_dado != null : !TIPO_DADO_EDEFAULT.equals(tipo_dado);
 		case SqlPackage.COLUNA__NULO:
 			return nulo != NULO_EDEFAULT;
+		case SqlPackage.COLUNA__TABELA:
+			return getTabela() != null;
 		}
 		return super.eIsSet(featureID);
 	}

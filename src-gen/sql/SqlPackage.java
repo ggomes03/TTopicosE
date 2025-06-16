@@ -204,13 +204,22 @@ public interface SqlPackage extends EPackage {
 	int COLUNA__NULO = 2;
 
 	/**
+	 * The feature id for the '<em><b>Tabela</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUNA__TABELA = 3;
+
+	/**
 	 * The number of structural features of the '<em>Coluna</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUNA_FEATURE_COUNT = 3;
+	int COLUNA_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Coluna</em>' class.
@@ -278,7 +287,7 @@ public interface SqlPackage extends EPackage {
 	int CHAVE_ESTRANGEIRA__COLUNA = 0;
 
 	/**
-	 * The feature id for the '<em><b>Tabela</b></em>' containment reference.
+	 * The feature id for the '<em><b>Tabela</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -471,6 +480,17 @@ public interface SqlPackage extends EPackage {
 	EAttribute getColuna_Nulo();
 
 	/**
+	 * Returns the meta object for the container reference '{@link sql.Coluna#getTabela <em>Tabela</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Tabela</em>'.
+	 * @see sql.Coluna#getTabela()
+	 * @see #getColuna()
+	 * @generated
+	 */
+	EReference getColuna_Tabela();
+
+	/**
 	 * Returns the meta object for class '{@link sql.ChavePrimaria <em>Chave Primaria</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -513,10 +533,10 @@ public interface SqlPackage extends EPackage {
 	EReference getChaveEstrangeira_Coluna();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link sql.ChaveEstrangeira#getTabela <em>Tabela</em>}'.
+	 * Returns the meta object for the reference '{@link sql.ChaveEstrangeira#getTabela <em>Tabela</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Tabela</em>'.
+	 * @return the meta object for the reference '<em>Tabela</em>'.
 	 * @see sql.ChaveEstrangeira#getTabela()
 	 * @see #getChaveEstrangeira()
 	 * @generated
@@ -670,6 +690,14 @@ public interface SqlPackage extends EPackage {
 		EAttribute COLUNA__NULO = eINSTANCE.getColuna_Nulo();
 
 		/**
+		 * The meta object literal for the '<em><b>Tabela</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUNA__TABELA = eINSTANCE.getColuna_Tabela();
+
+		/**
 		 * The meta object literal for the '{@link sql.impl.ChavePrimariaImpl <em>Chave Primaria</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -706,7 +734,7 @@ public interface SqlPackage extends EPackage {
 		EReference CHAVE_ESTRANGEIRA__COLUNA = eINSTANCE.getChaveEstrangeira_Coluna();
 
 		/**
-		 * The meta object literal for the '<em><b>Tabela</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Tabela</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

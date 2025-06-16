@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import sql.ChaveEstrangeira;
@@ -141,7 +142,8 @@ public class TabelaImpl extends MinimalEObjectImpl.Container implements Tabela {
 	@Override
 	public EList<Coluna> getColuna() {
 		if (coluna == null) {
-			coluna = new EObjectContainmentEList<Coluna>(Coluna.class, this, SqlPackage.TABELA__COLUNA);
+			coluna = new EObjectContainmentWithInverseEList<Coluna>(Coluna.class, this, SqlPackage.TABELA__COLUNA,
+					SqlPackage.COLUNA__TABELA);
 		}
 		return coluna;
 	}
@@ -172,6 +174,21 @@ public class TabelaImpl extends MinimalEObjectImpl.Container implements Tabela {
 					SqlPackage.TABELA__CHAVEESTRANGEIRA);
 		}
 		return chaveestrangeira;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SqlPackage.TABELA__COLUNA:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getColuna()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

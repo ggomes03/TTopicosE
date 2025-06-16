@@ -5,8 +5,6 @@ package sql.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -48,7 +46,7 @@ public class ChaveEstrangeiraImpl extends MinimalEObjectImpl.Container implement
 	protected EList<Coluna> coluna;
 
 	/**
-	 * The cached value of the '{@link #getTabela() <em>Tabela</em>}' containment reference.
+	 * The cached value of the '{@link #getTabela() <em>Tabela</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTabela()
@@ -96,6 +94,15 @@ public class ChaveEstrangeiraImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	public Tabela getTabela() {
+		if (tabela != null && tabela.eIsProxy()) {
+			InternalEObject oldTabela = (InternalEObject) tabela;
+			tabela = (Tabela) eResolveProxy(oldTabela);
+			if (tabela != oldTabela) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SqlPackage.CHAVE_ESTRANGEIRA__TABELA,
+							oldTabela, tabela));
+			}
+		}
 		return tabela;
 	}
 
@@ -104,18 +111,8 @@ public class ChaveEstrangeiraImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTabela(Tabela newTabela, NotificationChain msgs) {
-		Tabela oldTabela = tabela;
-		tabela = newTabela;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					SqlPackage.CHAVE_ESTRANGEIRA__TABELA, oldTabela, newTabela);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
+	public Tabela basicGetTabela() {
+		return tabela;
 	}
 
 	/**
@@ -125,34 +122,11 @@ public class ChaveEstrangeiraImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	public void setTabela(Tabela newTabela) {
-		if (newTabela != tabela) {
-			NotificationChain msgs = null;
-			if (tabela != null)
-				msgs = ((InternalEObject) tabela).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - SqlPackage.CHAVE_ESTRANGEIRA__TABELA, null, msgs);
-			if (newTabela != null)
-				msgs = ((InternalEObject) newTabela).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - SqlPackage.CHAVE_ESTRANGEIRA__TABELA, null, msgs);
-			msgs = basicSetTabela(newTabela, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SqlPackage.CHAVE_ESTRANGEIRA__TABELA, newTabela,
-					newTabela));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case SqlPackage.CHAVE_ESTRANGEIRA__TABELA:
-			return basicSetTabela(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		Tabela oldTabela = tabela;
+		tabela = newTabela;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SqlPackage.CHAVE_ESTRANGEIRA__TABELA, oldTabela,
+					tabela));
 	}
 
 	/**
@@ -166,7 +140,9 @@ public class ChaveEstrangeiraImpl extends MinimalEObjectImpl.Container implement
 		case SqlPackage.CHAVE_ESTRANGEIRA__COLUNA:
 			return getColuna();
 		case SqlPackage.CHAVE_ESTRANGEIRA__TABELA:
-			return getTabela();
+			if (resolve)
+				return getTabela();
+			return basicGetTabela();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
