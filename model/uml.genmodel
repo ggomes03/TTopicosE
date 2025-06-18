@@ -8,23 +8,25 @@
   <foreignModel>uml.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Uml" disposableProviderFactory="true" ecorePackage="uml.ecore#/">
-    <genClasses ecoreClass="uml.ecore#//Classe">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Classe/nome"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Classe/attributes"/>
+    <genClasses ecoreClass="uml.ecore#//Entidade">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Entidade/nome"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Entidade/atributos"/>
     </genClasses>
     <genClasses ecoreClass="uml.ecore#//Atributo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Atributo/nome"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Atributo/tipo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Atributo/ehChavePrimaria"/>
     </genClasses>
-    <genClasses ecoreClass="uml.ecore#//Associacao">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Associacao/nome"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Associacao/ehChaveEstrangeira"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Associacao/tabelaOrigem"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Associacao/tabelaAlvo"/>
+    <genClasses ecoreClass="uml.ecore#//Relacionamento">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Relacionamento/nome"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Relacionamento/origem"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Relacionamento/destino"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Relacionamento/multiplicidadeOrigem"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//Relacionamento/multiplicidadeDestino"/>
     </genClasses>
-    <genClasses ecoreClass="uml.ecore#//Elemento">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Elemento/classe"/>
+    <genClasses ecoreClass="uml.ecore#//ModeloEntidade">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//ModeloEntidade/entidades"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//ModeloEntidade/relacionamentos"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

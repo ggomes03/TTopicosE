@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ent:ModeloEntidade xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ent="http://www.example.org/entidades" xmi:id="_CO_N4Ex6EfCUpco7Oczupg">
+  <entidades xmi:id="_ECCf4Ex6EfCUpco7Oczupg" nome="tb1">
+    <atributos xmi:id="_FgRYcEx6EfCUpco7Oczupg" nome="id_tb1" tipo="int"/>
+  </entidades>
+  <entidades xmi:id="_ZfpQ8Ex6EfCUpco7Oczupg" nome="tb2">
+    <atributos xmi:id="_aLBwQEx6EfCUpco7Oczupg" nome="id_tb2" tipo="int"/>
+  </entidades>
+  <relacionamentos xmi:id="_dXsgkEx6EfCUpco7Oczupg" nome="fk_1" origem="_ZfpQ8Ex6EfCUpco7Oczupg" destino="_ECCf4Ex6EfCUpco7Oczupg" multiplicidadeOrigem="n" multiplicidadeDestino="n"/>
+</ent:ModeloEntidade>

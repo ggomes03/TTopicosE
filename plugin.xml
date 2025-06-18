@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated uml -->
       <package
-            uri="http://www.example.org/uml"
-            class="uml.UmlPackage"
+            uri="http://www.example.org/entidades"
+            class="entidades.UmlPackage"
             genModel="model/uml.genmodel"/>
    </extension>
 
